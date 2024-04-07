@@ -17,7 +17,9 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'pwd'
+    script: |
+      pwd
+      ls
 - task: TerraformTaskV4@4
   inputs:
     provider: 'azurerm'
