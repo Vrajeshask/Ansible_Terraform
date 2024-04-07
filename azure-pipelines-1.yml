@@ -56,6 +56,6 @@ steps:
 - task: Ansible@0
   inputs:
     ansibleInterface: 'agentMachine'
-    playbookPathOnAgentMachine: 'ansible.yaml'
+    playbookPathOnAgentMachine: '/home/patelvrajeshazure/myagent/_work/1/s/ansible.yaml'
     inventoriesAgentMachine: 'file'
     inventoryFileOnAgentMachine: 'terraform_output.json'
