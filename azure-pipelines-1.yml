@@ -18,7 +18,7 @@ steps:
     backendAzureRmResourceGroupName: 'terraform'
     backendAzureRmStorageAccountName: 'terraformncpl'
     backendAzureRmContainerName: 'tffiles'
-    backendAzureRmKey: 'ansible.tf'
+    backendAzureRmKey: 'ansible.tfstate'
 - task: TerraformTaskV4@4
   inputs:
     provider: 'azurerm'
