@@ -1,0 +1,7 @@
+---
+- name: Ping hosts
+  hosts: all
+  gather_facts: no  # Disable gathering facts for performance
+  tasks:
+    - name: Ping hosts
+      ping:
