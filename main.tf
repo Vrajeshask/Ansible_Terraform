@@ -67,5 +67,5 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
 }
 
 output "public_ip_address" {
-  value = azurerm_linux_virtual_machine.ncpl-vm.network_interface_ids[0].ip_configuration[0].public_ip_address
+  value = azurerm_linux_virtual_machine.ncpl-vm.public_ip_address
 }
