@@ -15,7 +15,6 @@ resource "azurerm_virtual_network" "ncpl-vn" {
   address_space       = ["10.0.0.0/16"]
 }
 
-
 resource "azurerm_subnet" "ncpl-subnet" {
   name                 = "internal"
   resource_group_name  = azurerm_resource_group.ncpl-rg.name
@@ -48,8 +47,8 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
   location            = azurerm_resource_group.ncpl-rg.location
   size                = "Standard_F2"
   admin_username      = "adminuser"  # Replace with your desired admin username
- disable_password_authentication = true 
- # admin_password      = "MyStrongPassword123!"  # Replace with your desired admin password
+  disable_password_authentication = true 
+  # admin_password      = "MyStrongPassword123!"  # Replace with your desired admin password
 
   admin_ssh_key {
     username   = "adminuser"
@@ -74,5 +73,5 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
 }
 
 output "public_ip_address" {
-  value = azurerm_linux_virtual_machine.ncpl-vm.public_ip_address
+  value = azurerm_public_ip.ncpl-public_ip.ip_address
 }
