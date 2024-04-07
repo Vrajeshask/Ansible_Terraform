@@ -28,3 +28,18 @@ steps:
     provider: 'azurerm'
     command: 'apply'
     environmentServiceNameAzureRM: 'Azure subscription 1(fd5d4633-e73f-4617-85ec-530631b1d79f)'
+
+- task: TerraformTaskV4@4
+  displayName: 'Run out'
+  inputs:
+    provider: 'azurerm'
+    command: 'custom'
+    customCommand: 'output'
+    commandOptions: '-json'
+    outputTo: 'file'
+    fileName: 'new'
+    environmentServiceNameAzureRM: 'Azure subscription 1(fd5d4633-e73f-4617-85ec-530631b1d79f)'
+    
+- script: |
+    terraform output -json public_ip_address > terraform_output.json
+  displayName: 'Run Terraform Output'
