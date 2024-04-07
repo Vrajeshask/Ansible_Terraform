@@ -24,6 +24,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
+    workingDirectory: '/home/patelvrajeshazure/myagent/_work/1/s'
     backendServiceArm: 'Azure subscription 1(fd5d4633-e73f-4617-85ec-530631b1d79f)'
     backendAzureRmResourceGroupName: 'terraform'
     backendAzureRmStorageAccountName: 'terraformncpl'
@@ -33,6 +34,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'apply'
+    workingDirectory: '/home/patelvrajeshazure/myagent/_work/1/s'
     environmentServiceNameAzureRM: 'Azure subscription 1(fd5d4633-e73f-4617-85ec-530631b1d79f)'
 
 - task: TerraformTaskV4@4
