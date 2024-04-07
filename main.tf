@@ -37,8 +37,8 @@ resource "azurerm_network_interface" "ncpl-nic" {
 
 resource "azurerm_public_ip" "ncpl-public_ip" {
   name                = "acceptanceTestPublicIp1"
-  resource_group_name = azurerm_resource_group.ncpl.name
-  location            = azurerm_resource_group.ncpl.location
+  resource_group_name = azurerm_resource_group.ncpl-rg.name
+  location            = azurerm_resource_group.ncpl-rg.location
   allocation_method   = "Static"
 }
 
