@@ -40,6 +40,7 @@ resource "azurerm_public_ip" "ncpl-public_ip" {
   resource_group_name = azurerm_resource_group.ncpl.name
   location            = azurerm_resource_group.ncpl.location
   allocation_method   = "Static"
+}
 
 resource "azurerm_linux_virtual_machine" "ncpl-vm" {
   name                = var.vm_name
