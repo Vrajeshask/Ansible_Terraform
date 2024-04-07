@@ -46,7 +46,7 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("/home/vsts/.ssh/id_rsa.pub")  # Path to your SSH public key
+    public_key = file("/home/patelvrajeshazure/.ssh/id_rsa.pub")  # Path to your SSH public key
   }
 
   network_interface_ids = [
