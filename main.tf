@@ -42,8 +42,13 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
   size                = "Standard_F2"
   admin_username      = "adminuser"  # Replace with your desired admin username
   disable_password_authentication = false
-  admin_password      = "MyStrongPassword123!"  # Replace with your desired admin password
+ # admin_password      = "MyStrongPassword123!"  # Replace with your desired admin password
 
+  admin_ssh_key {
+    username   = "adminuser"
+    public_key = file("~/.ssh/id_rsa.pub")  # Path to your SSH public key
+  }
+  
   network_interface_ids = [
     azurerm_network_interface.ncpl-nic.id,
   ]
