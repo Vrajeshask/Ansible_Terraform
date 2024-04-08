@@ -98,9 +98,9 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
 
  provisioner "remote-exec" {
     inline = [
-      "pwd"
-      "cd .."
-      "ls"
+      "pwd",
+      "cd ..",
+      "ls",
       "pwd"
       #"sudo mkdir -p /home/patelvrajeshazure/.ssh",
      # "sudo touch /home/patelvrajeshazure/.ssh/authorized_keys",
