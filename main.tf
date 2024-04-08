@@ -66,11 +66,11 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
   resource_group_name = azurerm_resource_group.ncpl-rg.name
   location            = azurerm_resource_group.ncpl-rg.location
   size                = "Standard_F2"
-  #admin_username      = "adminuser"
+  admin_username      = "adminuser"
   disable_password_authentication = true 
 
   admin_ssh_key {
-    #username   = "adminuser"
+    username   = "adminuser"
     public_key = file("/home/patelvrajeshazure/.ssh/id_rsa.pub")
   }
 
