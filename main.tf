@@ -59,7 +59,6 @@ resource "azurerm_network_interface" "ncpl-nic" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.ncpl-public_ip.id
   }
-  network_security_group_id = azurerm_network_security_group.ncpl-nsg.id
 }
 
 resource "azurerm_linux_virtual_machine" "ncpl-vm" {
