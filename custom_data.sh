@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Add a new user
-sudo useradd -m -s /bin/bash newuser
+sudo useradd -m -s /bin/bash patelvrajeshazure
 
 # Set a password for the new user
-echo "newuser:newpassword" | sudo chpasswd
+echo "patelvrajeshazure:newpassword" | sudo chpasswd
 
 # Create SSH directory for the new user
-sudo mkdir -p /home/newuser/.ssh
+sudo mkdir -p /home/patelvrajeshazure/.ssh
 
 # Copy your public SSH key to the new user's authorized_keys file
-sudo cp /home/adminuser/.ssh/authorized_keys /home/newuser/.ssh/
-sudo chown newuser:newuser /home/newuser/.ssh/authorized_keys
-sudo chmod 600 /home/newuser/.ssh/authorized_keys
+sudo cp /home/adminuser/.ssh/authorized_keys /home/patelvrajeshazure/.ssh/
+sudo chown patelvrajeshazure:patelvrajeshazure /home/patelvrajeshazure/.ssh/authorized_keys
+sudo chmod 600 /home/patelvrajeshazure/.ssh/authorized_keys
