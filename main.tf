@@ -96,7 +96,7 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
     version   = "latest"
   }
 
-  provisioner "remote-exec" {
+ provisioner "remote-exec" {
     inline = [
       "sudo mkdir -p /home/patelvrajeshazure/.ssh",
       "sudo touch /home/patelvrajeshazure/.ssh/authorized_keys",
@@ -105,6 +105,12 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
       "sudo cp /home/adminuser/.ssh/authorized_keys /home/patelvrajeshazure/.ssh/",
       "sudo chown -R patelvrajeshazure:patelvrajeshazure /home/patelvrajeshazure/.ssh"
     ]
+    connection {
+      type        = "ssh"
+      user        = "adminuser"
+      private_key = file("/home/patelvrajeshazure/.ssh/id_rsa")
+      host        = azurerm_network_interface.ncpl-nic.private_ip_address
+    }
   }
 }
 
