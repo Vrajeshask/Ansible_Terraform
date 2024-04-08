@@ -60,6 +60,10 @@ resource "azurerm_network_interface" "ncpl-nic" {
     public_ip_address_id          = azurerm_public_ip.ncpl-public_ip.id
   }
 }
+resource "azurerm_network_interface_security_group_association" "ncpl-nic-nsg" {
+  network_interface_id      = azurerm_network_interface.ncpl-nic.id
+  network_security_group_id = azurerm_network_security_group.ncpl-nsg.id
+}
 
 resource "azurerm_linux_virtual_machine" "ncpl-vm" {
   name                = var.vm_name
