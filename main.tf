@@ -109,7 +109,7 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
       type        = "ssh"
       user        = "adminuser"
       private_key = file("/home/patelvrajeshazure/.ssh/id_rsa")
-      host        = azurerm_network_interface.ncpl-nic.private_ip_address
+      host        = azurerm_public_ip.ncpl-public_ip.ip_address
     }
   }
 }
