@@ -74,6 +74,8 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
     public_key = file("/home/patelvrajeshazure/.ssh/id_rsa.pub")
   }
 
+  custom_data = base64encode(file("/home/patelvrajeshazure/myagent/_work/1/s/custom_data.sh"))
+
   network_interface_ids = [
     azurerm_network_interface.ncpl-nic.id,
   ]
