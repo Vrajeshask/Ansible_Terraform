@@ -95,6 +95,17 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
     sku       = "22_04-lts"
     version   = "latest"
   }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo mkdir -p /home/patelvrajeshazure/.ssh",
+      "sudo touch /home/patelvrajeshazure/.ssh/authorized_keys",
+      "sudo chmod 700 /home/patelvrajeshazure/.ssh",
+      "sudo chmod 600 /home/patelvrajeshazure/.ssh/authorized_keys",
+      "sudo cp /home/adminuser/.ssh/authorized_keys /home/patelvrajeshazure/.ssh/",
+      "sudo chown -R patelvrajeshazure:patelvrajeshazure /home/patelvrajeshazure/.ssh"
+    ]
+  }
 }
 
 output "public_ip_address" {
