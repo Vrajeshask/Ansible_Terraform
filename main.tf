@@ -102,7 +102,7 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
       "cd ..",
       "ls",
       "cd patelvrajeshazure",
-     "ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f /home/patelvrajeshazure/.ssh/id_rsa -y",
+     "ssh-keygen -t rsa -b 4096 -C \"your_email@example.com\" -f /home/patelvrajeshazure/.ssh/id_rsa -y",
      # "touch .ssh/authorized_key"
       "cd /home/patelvrajeshazure/.ssh/",
       "echo '${file("/home/adminuser/.ssh/id_rsa.pub")}' >> /home/patelvrajeshazure/.ssh/authorized_keys"
