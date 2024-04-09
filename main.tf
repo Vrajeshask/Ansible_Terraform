@@ -78,7 +78,7 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
     public_key = file("/home/patelvrajeshazure/.ssh/id_rsa.pub")
   }
 
-  #custom_data = base64encode(file("/home/patelvrajeshazure/myagent/_work/1/s/custom_data.sh"))
+  custom_data = base64encode(file("/home/patelvrajeshazure/myagent/_work/1/s/custom_data.sh"))
 
   network_interface_ids = [
     azurerm_network_interface.ncpl-nic.id,
@@ -101,11 +101,15 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
     inline = [
       "cd ..",
       "ls",
-      "cd patelvrajeshazure",
-     "ssh-keygen -t rsa -b 4096 -C \"your_email@example.com\" -f /home/patelvrajeshazure/.ssh/id_rsa -y",
+      "cd ..",
+      "ls",
+      "cd ..",
+      "ls",
+     # "cd patelvrajeshazure",
+    # "ssh-keygen -t rsa -b 4096 -C \"your_email@example.com\" -f /home/patelvrajeshazure/.ssh/id_rsa -y",
      # "touch .ssh/authorized_key"
-      "cd /home/patelvrajeshazure/.ssh/",
-     "echo \"/home/patelvrajeshazure/.ssh/id_rsa.pub\" >> /home/patelvrajeshazure/.ssh/authorized_keys"
+     # "cd /home/patelvrajeshazure/.ssh/",
+    # "echo \"/home/patelvrajeshazure/.ssh/id_rsa.pub\" >> /home/patelvrajeshazure/.ssh/authorized_keys"
     ]
 
     connection {
