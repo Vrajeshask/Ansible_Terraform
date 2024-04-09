@@ -105,7 +105,7 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
     connection {
       type        = "ssh"
       user        = "adminuser"
-      private_key = file("~/home/patelvrajeshazure/.ssh/id_rsa")  # Path to your SSH private key
+      private_key = file("/home/patelvrajeshazure/.ssh/id_rsa")  # Path to your SSH private key
       host        = azurerm_public_ip.ncpl-public_ip.ip_address        # Using the public IP of the instance
     }
   }
