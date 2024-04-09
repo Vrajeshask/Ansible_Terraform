@@ -96,30 +96,17 @@ resource "azurerm_linux_virtual_machine" "ncpl-vm" {
     version   = "latest"
   }
 
- provisioner "remote-exec" {
+
+  provisioner "remote-exec" {
     inline = [
-      "pwd",
-      "cd ..",
-      "ls",
-      "pwd",
-      "ls",
-      "cd ..",
-      "pwd ",
-      "ls",
-      "cd ..",
-      "ls",
-      #"sudo mkdir -p /home/patelvrajeshazure/.ssh",
-     # "sudo touch /home/patelvrajeshazure/.ssh/authorized_keys",
-      #"sudo chmod 700 /home/patelvrajeshazure/.ssh",
-     # "sudo chmod 600 /home/patelvrajeshazure/.ssh/authorized_keys",
-     # "sudo cp /home/adminuser/.ssh/authorized_keys /home/patelvrajeshazure/.ssh/",
-      #"sudo chown -R patelvrajeshazure:patelvrajeshazure /home/patelvrajeshazure/.ssh"
+      "echo Hello, Terraform! > /tmp/terraform_hello.txt"
     ]
+
     connection {
       type        = "ssh"
       user        = "adminuser"
-      private_key = file("/home/patelvrajeshazure/.ssh/id_rsa")
-      host        = azurerm_public_ip.ncpl-public_ip.ip_address
+      private_key = file("~/home/patelvrajeshazure/.ssh/id_rsa")  # Path to your SSH private key
+      host        = azurerm_public_ip.ncpl-public_ip.ip_address        # Using the public IP of the instance
     }
   }
 }
