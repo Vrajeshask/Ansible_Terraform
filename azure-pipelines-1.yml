@@ -14,14 +14,15 @@ steps:
 #  inputs:
 #    targetType: 'inline'
 #    script: 'ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f /home/patelvrajeshazure/.ssh/id_rsa -y'
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      pwd
-      ls
+#- task: Bash@3
+#  inputs:
+#    targetType: 'inline'
+#    script: |
+#      pwd
+#      ls
 
 - task: TerraformTaskV4@4
+  displayName: 'Terraform Init'
   inputs:
     provider: 'azurerm'
     command: 'init'
@@ -32,6 +33,7 @@ steps:
     backendAzureRmContainerName: 'tffiles'
     backendAzureRmKey: 'ansible.tfstate'
 - task: TerraformTaskV4@4
+  displayName: 'Terraform Apply'
   inputs:
     provider: 'azurerm'
     command: 'apply'
@@ -39,7 +41,7 @@ steps:
     environmentServiceNameAzureRM: 'Azure subscription 1(fd5d4633-e73f-4617-85ec-530631b1d79f)'
 
 - task: TerraformTaskV4@4
-  displayName: 'Run out'
+  displayName: 'Terraform OutPut'
   inputs:
     provider: 'azurerm'
     command: 'custom'
@@ -54,11 +56,13 @@ steps:
   displayName: 'Run Terraform Output'
 
 - task: CmdLine@2
+  displayName: 'Python Script for Inventory'
   inputs:
     script: |
       ls
       python3 inventory.py
 - task: Ansible@0
+  displayName: 'Ansible Playbook'
   inputs:
     ansibleInterface: 'agentMachine'
     playbookPathOnAgentMachine: '/home/patelvrajeshazure/myagent/_work/1/s/ansible.yaml'
