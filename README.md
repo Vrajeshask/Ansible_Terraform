@@ -22,6 +22,17 @@ If you want to learn more about creating good readme files then refer the follow
 
 Terraform and Ansible in #AzureDevops, I AM USING TERRAFORM TO DEPLOY A VM AND USING ANSIBLE TO CONFIGURE IT (NGINX SERVER).
 
+
+![pipeline](https://github.com/Vrajeshask/Ansible_Terraform/assets/142744675/fd194831-bebf-4600-b078-db55091e4da9)
+![ansible_playbook](https://github.com/Vrajeshask/Ansible_Terraform/assets/142744675/b5a8ab36-0176-4812-bdc5-1559fc138328)
+![NginX_install](https://github.com/Vrajeshask/Ansible_Terraform/assets/142744675/e48e32b6-7cae-4740-8c11-dd21ff36cea0)
+![Terraform_files](https://github.com/Vrajeshask/Ansible_Terraform/assets/142744675/0a1c3293-bbbe-47ae-af52-aeeade23ad41)
+
+
+https://github.com/Vrajeshask/Ansible_Terraform/assets/142744675/764809af-bdee-4ea1-832b-527bc3f606da
+
+
+
 1)Install Required Tools:
 Install Terraform on your local machine.
 Install Ansible on your local machine.
@@ -65,4 +76,6 @@ Debug and troubleshoot any issues encountered during the provisioning and config
 11)Verify the VM:
 Once the pipeline completes successfully, verify that the VM is provisioned and configured as expected.
 #Terraform #InfrastructureAsCode #Ansible #ConfigurationManagement #AzureDevOps #CI/CD #Azure #Git #Automation #DeploymentVerification
+
+
 
