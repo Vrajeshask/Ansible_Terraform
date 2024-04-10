@@ -5,3 +5,14 @@
   tasks:
     - name: Ping hosts
       ping:
+
+- name: Install Nginx
+  hosts: all
+  become: yes  # Use privilege escalation to run the task as root
+  tasks:
+    - name: Install Nginx
+      apt:  # Use the 'apt' module for Debian-based systems like Ubuntu
+        name: nginx  # Package name to install
+        state: present  # Ensure that the package is installed
+      tags: 
+        - nginx  # Tag for the Nginx installation task
