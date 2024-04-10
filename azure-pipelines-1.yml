@@ -53,21 +53,11 @@ steps:
     terraform output -json public_ip_address > terraform_output.json
   displayName: 'Run Terraform Output'
 
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.x'
-    addToPath: true
-    architecture: 'x64'
-- task: PythonScript@0
-  inputs:
-    scriptSource: 'filePath'
-    scriptPath: '/home/patelvrajeshazure/myagent/_work/1/s/inventory.py'
 - task: CmdLine@2
   inputs:
     script: |
       ls
-      inventory.py
-      python inventory.py
+      python3 inventory.py
 - task: Ansible@0
   inputs:
     ansibleInterface: 'agentMachine'
