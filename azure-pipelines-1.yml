@@ -55,7 +55,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'python3 add_to_inventory.py'
+    script: '/home/patelvrajeshazure/myagent/_work/1/s/python3 add_to_inventory.py'
 - task: Ansible@0
   inputs:
     ansibleInterface: 'agentMachine'
