@@ -55,7 +55,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'python add_to_inventory.py'
+    script: 'python3 add_to_inventory.py'
 - task: Ansible@0
   inputs:
     ansibleInterface: 'agentMachine'
