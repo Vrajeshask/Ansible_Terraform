@@ -1,14 +1,9 @@
-import json
-
 # Path to the Terraform output JSON file
 terraform_output_file = "/home/patelvrajeshazure/myagent/_work/1/s/terraform_output.json"
 
-# Read and parse JSON content from the Terraform output file
+# Read the IP address from the file
 with open(terraform_output_file, 'r') as f:
-    terraform_output = json.load(f)
-
-# Extract the IP address from the parsed JSON
-ip_address = terraform_output["vm_ip_address"]
+    ip_address = f.read().strip()  # Read the contents of the file as a string and remove leading/trailing whitespace
 
 # Assign other variables as needed
 ansible_user = "adminuser"
