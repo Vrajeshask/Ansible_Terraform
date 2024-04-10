@@ -53,9 +53,12 @@ steps:
     terraform output -json public_ip_address > terraform_output.json
   displayName: 'Run Terraform Output'
 
+- task: CmdLine@2
+  inputs:
+    script: 'python add_to_inventory.py'
 - task: Ansible@0
   inputs:
     ansibleInterface: 'agentMachine'
     playbookPathOnAgentMachine: '/home/patelvrajeshazure/myagent/_work/1/s/ansible.yaml'
     inventoriesAgentMachine: 'file'
-    inventoryFileOnAgentMachine: 'terraform_output.json'
+    inventoryFileOnAgentMachine: '/home/patelvrajeshazure/myagent/_work/1/s/inventory.ini'
